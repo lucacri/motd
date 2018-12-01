@@ -27,7 +27,7 @@ for i in "${!disks[@]}"; do
 #    temp=$(printf -- '%s\n' "${lines[@]}" | grep "${uuid}" | grep -m 1 "Temperature_Celsius" | awk '{ print $NF }')
 #    temp=$(hddtemp -n --quiet /dev/$disk)
 temp=${diskTemps[$i]}
-    status=$(printf -- '%s\n' "${lines[@]}" | grep "${uuid}" | grep -m 1 -oP "previous self-test.*" | cut -d' '  -f4-)
+    status=$(printf -- '%s\n' "${lines[@]}" | grep "${disk}" | grep -m 1 -oP "previous self-test.*" | cut -d' '  -f4-)
     # color green if temp <= MAX_TEMP, else red
     if [[ "${temp}" -gt "${MAX_TEMP}" ]]; then
         color=$red
