@@ -12,12 +12,12 @@ dim="\e[2m"
 undim="\e[0m"
 
 # disks to check
-disks=(sda sdb sdc sdd sde sdf sdg sdh sdi sdj)
+disks=(sda sdb sdc sdd sde sdf sdg sdh sdi sdj sdk)
 logfiles='/var/log/syslog /var/log/syslog.1'
 
 # get all lines with smartd entries from syslog
 mapfile -t lines < <(grep -hiP 'smartd\[[[:digit:]]+\]:' $logfiles | grep -iP "(Temperature_Celsius|previous self-test)" | sort -r)
-mapfile -t diskTemps < <(hddtemp -n --quiet /dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg /dev/sdh /dev/sdi /dev/sdj)
+mapfile -t diskTemps < <(hddtemp -n --quiet /dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg /dev/sdh)
 
 out=""
 for i in "${!disks[@]}"; do
