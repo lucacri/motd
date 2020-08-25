@@ -1,5 +1,5 @@
 #!/bin/bash
-
+exit
 # config
 max_usage=90
 bar_width=50

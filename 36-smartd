@@ -1,5 +1,5 @@
 #!/bin/bash
-
+exit
 # config
 MAX_TEMP=40
 # set column width

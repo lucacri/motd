@@ -55,7 +55,7 @@ if [ "$FORCED" != "1" ]; then
   	if [ -r $CACHE ]; then
 		echo
 		safe_print $CACHE
-	else
+	elif [ "$(id -u)" -eq 0 ]; then
 		: > $CACHE
 	fi
 	exit 0
